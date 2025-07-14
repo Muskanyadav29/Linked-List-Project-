@@ -11,24 +11,19 @@ typedef struct node{
 #define INFO DATA
 #define LINK FORWARD
 
-// For Simple Linked List
 Node* START_SIMPLE = NULL;
 Node* AVAIL_SIMPLE = NULL;
 
-// For Doubly Linked List
 Node* START_DOUBLY = NULL;
 Node* END_DOUBLY = NULL;
 Node* AVAIL_DOUBLY = NULL;
 
-// For Header Linked List
 Node* HEAD = NULL;
 Node* AVAIL_HEADER = NULL;
 
-// For Circular Linked List
 Node* START_CIRCULAR = NULL;
 Node* AVAIL_CIRCULAR = NULL;
 
-// Simple Linked List Functions..
 void addToAvailOfSimple(Node* NEW){
     NEW->LINK = AVAIL_SIMPLE;
     AVAIL_SIMPLE = NEW;
@@ -109,7 +104,7 @@ void insertAfterSpecificInSimple(int specific, int data){
         }
     }
 }
-// Functions of deletion for Simple Linked List..
+
 void deleteFirstOfSimple(){
     if(START_SIMPLE == NULL){
         printf("\t\t~~~ Unable to Delete ~~~ List is Empty ~~~\n");
@@ -168,7 +163,7 @@ void deleteSpecificOfSimple(int deleteValue){
         }
     }
 }
-// Searching in the simple linked list
+
 void searchSimpleList(int search){
     int count = 0;
     int found = 0;
@@ -189,7 +184,7 @@ void searchSimpleList(int search){
             printf("\t\t The element %d is found at position: %d\n",search, found);
     }
 }
-// free all the memory of simple linked list
+
 void freeSimpleList(){
     Node* PTR;
     while(START_SIMPLE != NULL){
@@ -204,7 +199,6 @@ void freeSimpleList(){
     }
     START_SIMPLE = AVAIL_SIMPLE = NULL;
 }
-// display simple linked list
 void displaySimpleList(){
     Node* PTR = START_SIMPLE;
     printf("\n\t\tSimple Linked List: ");
@@ -223,10 +217,6 @@ void displaySimpleList(){
     printf("NULL\n\n");
 }
 
-
-
-
-// Doubly Linked List Functions...
 void addToAvailOfDoubly(Node* NEW){
     NEW->FORWARD = AVAIL_DOUBLY;
     AVAIL_DOUBLY = NEW;
@@ -257,7 +247,7 @@ Node* checkAvailOfDoubly(){
    NEW->BACKWARD = NULL;
    return NEW;
 }
-// doubly list insertion programs
+
 void insertAtBeginInDoubly(int data){
     Node* NEW = checkAvailOfDoubly();
     if(NEW == NULL)
@@ -356,7 +346,6 @@ void insertBeforeSpecfic(int specific, int data){
         printf("\t\t %d element is inserted before %d Successfully!\n",data,specific);
     }
 }
-// Fucntions of deletion in doubly linked list..
 void deleteFirstOfDoubly(){
     if(START_DOUBLY == NULL){
         printf("\t\t ~~ Unable to delete ~ UNDERFLOW ~~\n");
@@ -425,7 +414,6 @@ void deleteSpecificOfDoubly(int deleteValue){
         }
     }
 }
-// seaching functions...
 void searchFromStart(int search){
     int count = 0;
     int found = 0;
@@ -466,7 +454,7 @@ void searchFromEnd(int search){
             printf("\t\tThe element %d is found at position: %d",search,found);
     }
 }
-// display function
+
 void displayDoublyListWithStart(){
     Node* PTR = START_DOUBLY;
     printf("\t\t Doubly Linked List: START -> ");
@@ -501,7 +489,7 @@ void displayDoublyListWithEnd(){
     }
     printf("NULL\n");
 }
-// free doubly list
+
 void freeDoublyList(){
     Node* PTR;
     while(START_DOUBLY != NULL){
@@ -523,9 +511,6 @@ void freeDoublyList(){
 }
 
 
-
-
-// Header Linked List Functions...
 void initHeader(){
     Node* NEW = (Node *)malloc(sizeof(Node));
     if(NEW == NULL){
@@ -574,7 +559,6 @@ Node* checkAvailOfHeader(){
     NEW->LINK = NULL;
     return NEW;
 }
-// Insertion in Header List
 void insertAtBeginInHeader(int data){
     if(HEAD == NULL){
         printf("\t\t Initialize Header node first. \n");
@@ -643,7 +627,6 @@ void insertAfterSpecificInHeader(int specific, int data){
         }
     }
 }
-// deletion in header list..
 void deleteFirstOfHeader(){
     if(HEAD == NULL){
         printf("\t\t Initialize Header Node First\n");
@@ -720,7 +703,6 @@ void deleteSpecificOfHeader(int deleteValue){
         }
     }
 }
-// searching in header list..
 void searchInHeader(int search){
     if(HEAD == NULL){
         printf("\t\tInitialize Header Node First\n");
@@ -782,10 +764,6 @@ void freeHeaderList(){
     HEAD = AVAIL_HEADER = NULL;
 }
 
-
-
-
-// Circular Linked list Functions..
 void addToAvailOfCircular(Node* NEW){   
     NEW->LINK = AVAIL_CIRCULAR;
     AVAIL_CIRCULAR = NEW;
@@ -811,7 +789,7 @@ Node* checkAvailOfCircular(){
     NEW->LINK = NULL;
     return NEW;
 }
-// Insertion functions of Circular Lists..
+
 void insertAtBeginInCircular(int data){
     Node* NEW = checkAvailOfCircular();
     if(NEW == NULL){
@@ -1029,9 +1007,6 @@ void freeCircularList(){
 }
 
 
-
-
-// MAIN FUNCTION...
 int main(){
     int choice,space,data,specific,searchElement;
 
